@@ -12,17 +12,17 @@ http://nodejs.cn/download/
 https://code.visualstudio.com/
 
 #### VScode扩展程序：
-Laravel artisan
-Laravel blade snippets
-Laravel blade spacer
-Laravel goto view
-Larval snippets
-Larval extra intelligence
-php Intellisense
-Bracket pair colorizer
-Github
-Javascript6
-Vscode great icons
+- Laravel artisan
+- Laravel blade snippets
+- Laravel blade spacer
+- Laravel goto view
+- Larval snippets
+- Larval extra intelligence
+- php Intellisense
+- Bracket pair colorizer
+- Github
+- Javascript6
+- Vscode great icons
 
 
 #### VSCODE格式化LARAVEL的BLADE文件：
