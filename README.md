@@ -1,1 +1,1 @@
-lesson-6:laravel路由
+lesson-7:blade基础语法
