@@ -18,9 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 Route::get('/about', function () {
     return view('about');
-});
+})->middleware('check');
 
 //Laravel 6,7
 // Route::get('/contact', 'ContactController@index');
