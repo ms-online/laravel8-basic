@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    {{--  --}}
+                    {{-- 添加成功会话 --}}
                     @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ session('success') }}</strong>
