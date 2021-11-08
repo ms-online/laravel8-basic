@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class CategoryController extends Controller
 {
@@ -16,10 +19,26 @@ class CategoryController extends Controller
     {
         //数据验证
         $validated = $request->validate([
-            'category_name' => 'required|unique:category_name|max:255',
+            'category_name' => 'required|unique:categories|max:255',
         ], [
             'category_name.required' => '商品名称为必填项！',
-            'category_name.max' => '商品名称最大长度为255个字符！'
+            'category_name.max' => '商品名称最大长度为255个字符！',
+            'category_name.unique' => '商品名称已存在'
         ]);
+
+        //将数据插入到数据库
+        //Eloquent ORM
+        Category::insert([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id,
+            'created_at' => Carbon::now()
+        ]);
+
+        // $category = new Category;
+        // $category->category_name = $request->category_name;
+        // $category->user_id = Auth::user()->id;
+        // $category->save();
+
+        return Redirect()->back()->with('success', '商品类型添加成功！');
     }
 }
