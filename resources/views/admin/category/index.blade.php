@@ -39,8 +39,8 @@
                                             @if ($category->created_at == NULL)
                                             <span class="text-danger">没有设置创建时间</span>
                                             @else
-                                        <td>{{ $category->created_at->diffForHumans() }}</td>
-                                        @endif
+                                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
