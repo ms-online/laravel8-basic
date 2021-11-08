@@ -12,8 +12,8 @@ class CategoryController extends Controller
 {
     public function AllCat()
     {
-        // $categories = Category::latest()->get();
-        $categories = DB::table('categories')->latest()->get();
+        // $categories = Category::latest()->->paginate(5);
+        $categories = DB::table('categories')->latest()->paginate(5);
         return view('admin.category.index', compact('categories'));
     }
 
@@ -31,11 +31,11 @@ class CategoryController extends Controller
 
         //将数据插入到数据库
         //Eloquent ORM
-        // Category::insert([
-        //     'category_name' => $request->category_name,
-        //     'user_id' => Auth::user()->id,
-        //     'created_at' => Carbon::now()
-        // ]);
+        Category::insert([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id,
+            'created_at' => Carbon::now()
+        ]);
 
         // $category = new Category;
         // $category->category_name = $request->category_name;
@@ -43,10 +43,10 @@ class CategoryController extends Controller
         // $category->save();
 
         // Query builder
-        DB::table('categories')->insert([
-            'category_name' => $request->category_name,
-            'user_id' => Auth::user()->id,
-        ]);
+        // DB::table('categories')->insert([
+        //     'category_name' => $request->category_name,
+        //     'user_id' => Auth::user()->id,
+        // ]);
 
         return Redirect()->back()->with('success', '商品类型添加成功！');
     }

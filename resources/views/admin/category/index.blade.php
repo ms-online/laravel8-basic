@@ -29,10 +29,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php($i =1)
                                     @foreach ($categories as $category )
                                     <tr>
-                                        <th scope="row">{{ $i++ }}</th>
+                                        <th scope="row">{{ $loop->index + $categories->firstItem() }}</th>
                                         <td>{{ $category->category_name }}</td>
                                         <td>{{ $category->user_id }}</td>
                                         <td>
@@ -47,6 +46,8 @@
 
                                 </tbody>
                             </table>
+                            {{-- 分页导航 --}}
+                            {{ $categories -> links() }}
                         </div>
                     </div>
                 </div>
