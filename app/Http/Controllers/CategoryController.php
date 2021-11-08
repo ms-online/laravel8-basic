@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -28,16 +29,22 @@ class CategoryController extends Controller
 
         //将数据插入到数据库
         //Eloquent ORM
-        Category::insert([
-            'category_name' => $request->category_name,
-            'user_id' => Auth::user()->id,
-            'created_at' => Carbon::now()
-        ]);
+        // Category::insert([
+        //     'category_name' => $request->category_name,
+        //     'user_id' => Auth::user()->id,
+        //     'created_at' => Carbon::now()
+        // ]);
 
         // $category = new Category;
         // $category->category_name = $request->category_name;
         // $category->user_id = Auth::user()->id;
         // $category->save();
+
+        // Query builder
+        DB::table('categories')->insert([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id,
+        ]);
 
         return Redirect()->back()->with('success', '商品类型添加成功！');
     }
