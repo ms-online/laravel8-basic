@@ -18,24 +18,36 @@
                     @endif
                     <div class="card">
                         <div class="card-header">商品类型</div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">序号</th>
-                                    <th scope="col">商品名称</th>
-                                    <th scope="col">所属用户</th>
-                                    <th scope="col">创建时间</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- <tr>
-                            <th scope="row">{{ $i++ }}</th>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</td>
-                                </tr> --}}
-                            </tbody>
-                        </table>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">序号</th>
+                                        <th scope="col">商品名称</th>
+                                        <th scope="col">所属用户</th>
+                                        <th scope="col">创建时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php($i =1)
+                                    @foreach ($categories as $category )
+                                    <tr>
+                                        <th scope="row">{{ $i++ }}</th>
+                                        <td>{{ $category->category_name }}</td>
+                                        <td>{{ $category->user_id }}</td>
+                                        <td>
+                                            @if ($category->created_at == NULL)
+                                            <span class="text-danger">没有设置创建时间</span>
+                                            @else
+                                        <td>{{ $category->created_at->diffForHumans() }}</td>
+                                        @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 {{-- 添加商品表单 --}}
