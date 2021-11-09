@@ -34,7 +34,8 @@
                                     <tr>
                                         <th scope="row">{{ $loop->index + $brands->firstItem() }}</th>
                                         <td>{{ $brand->brand_name }}</td>
-                                        <td>{{ $brand->brand_image }}</td>
+                                        <td><img src="{{ asset($brand->brand_image) }}" alt=""
+                                                style="height:40px;width:70px"></td>
                                         <td>
                                             @if ($brand->created_at == NULL)
                                             <span class="text-danger">没有设置创建时间</span>
@@ -63,7 +64,7 @@
                     <div class="card">
                         <div class="card-header">添加品牌</div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">品牌名称</label>
@@ -76,10 +77,10 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">品牌图片</label>
-                                    <input type="file" name="brand_name" class="form-control" id="exampleInputEmail1"
+                                    <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp">
                                     {{-- 错误提示 --}}
-                                    @error('brand_name')
+                                    @error('brand_image')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
