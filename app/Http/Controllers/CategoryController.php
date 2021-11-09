@@ -62,15 +62,23 @@ class CategoryController extends Controller
 
     //编辑商品信息
     public function Edit($id)
-    {
-        $categories = Category::find($id);
+    {   //Eloquent ORM
+        // $categories = Category::find($id);
+        //Query Builder
+        $categories = DB::table('categories')->where('id', $id)->first();
         return view('admin.category.edit', compact('categories'));
     }
 
     //更新商品信息
     public function Update(Request $request, $id)
     {
-        $update = Category::find($id)->update([
+        //Eloquent ORM
+        // $update = Category::find($id)->update([
+        //     'category_name' => $request->category_name,
+        //     'user_id' => Auth::user()->id
+        // ]);
+        //Query Builder
+        DB::table('categories')->where('id', $id)->update([
             'category_name' => $request->category_name,
             'user_id' => Auth::user()->id
         ]);
