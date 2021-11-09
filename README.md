@@ -1,1 +1,1 @@
-lesson-23:EloquentORM一对一关系
+lesson-24:查询构建器内部连接

@@ -33,7 +33,7 @@
                                     <tr>
                                         <th scope="row">{{ $loop->index + $categories->firstItem() }}</th>
                                         <td>{{ $category->category_name }}</td>
-                                        <td>{{ $category->user->name }}</td>
+                                        <td>{{ $category->name }}</td>
                                         <td>
                                             @if ($category->created_at == NULL)
                                             <span class="text-danger">没有设置创建时间</span>

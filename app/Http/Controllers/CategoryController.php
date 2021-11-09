@@ -12,7 +12,16 @@ class CategoryController extends Controller
 {
     public function AllCat()
     {
-        $categories = Category::latest()->paginate(5);
+        //join方法实现连表查询
+        //传递给该join方法的第一个参数是您需要联接的表的名称，而其余参数指定联接的列约束
+        //select方法可以为查询指定一个自定义的“select”子句：
+        $categories = DB::table('categories')
+            ->join('users', 'categories.user_id', 'users.id')
+            ->select('categories.*', 'users.name')
+            ->latest()
+            ->paginate(5);
+
+        // $categories = Category::latest()->paginate(5);
         // $categories = DB::table('categories')->latest()->paginate(5);
         return view('admin.category.index', compact('categories'));
     }
