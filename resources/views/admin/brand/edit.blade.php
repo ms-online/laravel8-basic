@@ -13,8 +13,11 @@
                     <div class="card">
                         <div class="card-header">编辑品牌形象</div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="{{ url('brand/update/'.$brands->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
+                                {{-- 隐藏域：传递旧的图片地址 --}}
+                                <input type="hidden" name="old_image" value='{{ $brands->brand_image }}'>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">品牌名称</label>
                                     <input type="text" name="brand_name" class="form-control" id="exampleInputEmail1"

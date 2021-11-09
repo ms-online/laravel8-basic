@@ -1,1 +1,1 @@
-lesson-31:Eloquent ORM 编辑图片
+lesson-32:EloquentORM更新图片
