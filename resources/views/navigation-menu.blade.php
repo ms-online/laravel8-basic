@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('all.category') }}" :active="request()->routeIs('all.category')">
                         商品类型
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('all.brand') }}" :active="request()->routeIs('all.brand')">
+                        品牌形象
+                    </x-jet-nav-link>
                 </div>
             </div>
 
