@@ -59,4 +59,21 @@ class CategoryController extends Controller
 
         return Redirect()->back()->with('success', '商品类型添加成功！');
     }
+
+    //编辑商品信息
+    public function Edit($id)
+    {
+        $categories = Category::find($id);
+        return view('admin.category.edit', compact('categories'));
+    }
+
+    //更新商品信息
+    public function Update(Request $request, $id)
+    {
+        $update = Category::find($id)->update([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id
+        ]);
+        return Redirect()->route('all.category')->with('success', '商品类型更新成功！');
+    }
 }

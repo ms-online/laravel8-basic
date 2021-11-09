@@ -1,1 +1,1 @@
-lesson-24:查询构建器内部连接
+lesson-25:EloquentORM实现编辑和更新

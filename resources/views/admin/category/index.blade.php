@@ -26,6 +26,7 @@
                                         <th scope="col">商品名称</th>
                                         <th scope="col">所属用户</th>
                                         <th scope="col">创建时间</th>
+                                        <th scope="col">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,6 +41,12 @@
                                             @else
                                             {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ url('category/edit/'.$category->id) }}"
+                                                class="btn btn-success">编辑</a>
+                                            <a href="" class="btn btn-danger">回收</a>
+
                                         </td>
                                     </tr>
                                     @endforeach

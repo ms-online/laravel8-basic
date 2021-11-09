@@ -38,6 +38,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('con');
 //商品类型
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
 Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');
+Route::get('/category/edit/{id}', [CategoryController::class, 'Edit']);
+Route::post('/category/update/{id}', [CategoryController::class, 'Update']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //Eloquent ORM
