@@ -1,1 +1,1 @@
-lesson-30:Eloquent ORM 上传图片（单图）
+lesson-31:Eloquent ORM 编辑图片

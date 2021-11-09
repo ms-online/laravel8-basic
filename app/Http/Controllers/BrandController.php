@@ -47,4 +47,10 @@ class BrandController extends Controller
         ]);
         return Redirect()->back()->with('success', '品牌形象添加成功！');
     }
+
+    public function Edit($id)
+    {
+        $brands = Brand::find($id);
+        return view('admin.brand.edit', compact('brands'));
+    }
 }
