@@ -93,4 +93,23 @@ class CategoryController extends Controller
         $delete = Category::find($id)->delete();
         return Redirect()->back()->with('success', '商品类型已移除到回收站！');
     }
+
+    //数据恢复
+    //withTrashed 方法来强制结果中显示已经被软删除的模型
+    //restore 方法来将模型从软删除中解除
+    public function Restore($id)
+    {
+
+        $restoreCat = Category::withTrashed()->find($id)->restore();
+        return Redirect()->back()->with('success', '商品类型恢复成功！');
+    }
+
+    //永久删除
+    //onlyTrashed() 方法可以只获取已软删除的模型
+    //forceDelete()方法实现强制删除
+    public function Pdelete($id)
+    {
+        $pdelet = Category::onlyTrashed()->find($id)->forceDelete();
+        return Redirect()->back()->with('success', '商品类型永久删除成功！');
+    }
 }

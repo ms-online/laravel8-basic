@@ -114,9 +114,10 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ url('category/edit/'.$category->id) }}"
-                                                class="btn btn-success">编辑</a>
-                                            <a href="" class="btn btn-danger">回收</a>
+                                            <a href="{{ url('category/restore/'.$category->id)}}"
+                                                class="btn btn-success">复位</a>
+                                            <a href="{{ url('pdelete/category/'.$category->id) }}"
+                                                class="btn btn-danger">删除</a>
 
                                         </td>
                                     </tr>
