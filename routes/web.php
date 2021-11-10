@@ -57,6 +57,9 @@ Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.ima
 
 
 
+
+
+
 //后台主页
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //Eloquent ORM
@@ -66,3 +69,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $users = DB::table('users')->get();
     return view('admin.index', compact('users'));
 })->name('dashboard');
+
+//退出登录
+Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');

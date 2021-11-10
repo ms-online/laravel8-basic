@@ -8,6 +8,7 @@ use App\Models\Brand;
 use App\Models\Multipic;
 use Illuminate\Support\Carbon;
 use Image;
+use Illuminate\Support\Facades\Auth;
 
 class BrandController extends Controller
 {
@@ -151,5 +152,13 @@ class BrandController extends Controller
         }
 
         return Redirect()->back()->with('success', '多图上传添加成功！');
+    }
+
+    //退出登录
+    public function UserLogout()
+    {
+        Auth::logout();
+        return
+            Redirect()->route('login')->with('success', '用户已退出登录！');
     }
 }
