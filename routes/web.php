@@ -57,11 +57,12 @@ Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.ima
 
 
 
+//后台主页
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //Eloquent ORM
     // $users = User::all();
 
     //Query builder
     $users = DB::table('users')->get();
-    return view('dashboard', compact('users'));
+    return view('admin.index', compact('users'));
 })->name('dashboard');
