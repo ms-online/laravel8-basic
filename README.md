@@ -1,1 +1,1 @@
-lesson-32:EloquentORM更新图片
+lesson-33:EloquentORM删除图片

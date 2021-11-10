@@ -92,4 +92,16 @@ class BrandController extends Controller
         ]);
         return Redirect()->back()->with('success', '品牌形象更新成功！');
     }
+
+    public function Delete($id)
+    {
+        //删除目录中的图片
+        $brand = Brand::find($id);
+        $old_image = $brand->brand_image;
+        unlink($old_image);
+
+        //删除数据库中的品牌形象数据
+        Brand::find($id)->delete();
+        return Redirect()->back()->with('success', '品牌形象删除成功！');
+    }
 }

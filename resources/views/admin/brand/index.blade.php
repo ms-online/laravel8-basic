@@ -46,7 +46,7 @@
                                         <td>
                                             <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-success">编辑</a>
                                             <a href="{{ url('brand/delete/'.$brand->id) }}"
-                                                class="btn btn-danger">回收</a>
+                                                onclick="return confirm('是否确认删除？')" class="btn btn-danger">删除</a>
 
                                         </td>
                                     </tr>
