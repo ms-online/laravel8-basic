@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use App\Models\Multipic;
 use Illuminate\Support\Carbon;
 use Image;
 
@@ -110,5 +111,12 @@ class BrandController extends Controller
         //删除数据库中的品牌形象数据
         Brand::find($id)->delete();
         return Redirect()->back()->with('success', '品牌形象删除成功！');
+    }
+
+    // 多图上传
+    public function Multipic()
+    {
+        $images = Multipic::all();
+        return view('admin.multipic.index', compact('images'));
     }
 }

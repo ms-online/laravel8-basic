@@ -21,6 +21,9 @@
                     <x-jet-nav-link href="{{ route('all.brand') }}" :active="request()->routeIs('all.brand')">
                         品牌形象
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('multi.image') }}" :active="request()->routeIs('multi.image')">
+                        多图上传
+                    </x-jet-nav-link>
                 </div>
             </div>
 
