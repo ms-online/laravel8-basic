@@ -119,4 +119,37 @@ class BrandController extends Controller
         $images = Multipic::all();
         return view('admin.multipic.index', compact('images'));
     }
+
+    //保存多图
+    public function StoreImg(Request $request)
+    {
+        //初始化验证
+        $validated = $request->validate([
+            'image' => 'required',
+
+        ], [
+
+            'image.required' => '图片为必填项！',
+        ]);
+
+        //图片上传
+        $multi_images = $request->file('image');
+
+        //遍历多图
+        foreach ($multi_images as $multi_image) {
+            //图片处理扩展包（修改图片大小）
+            $image_name = hexdec(uniqid()) . '.' . $multi_image->getClientOriginalExtension();
+            Image::make($multi_image)->resize(300, 200)->save('image/multi/' . $image_name);
+
+            $last_img = 'image/multi/' . $image_name;
+
+            //插入到数据库
+            Multipic::insert([
+                'image' => $last_img,
+                'created_at' => Carbon::now()
+            ]);
+        }
+
+        return Redirect()->back()->with('success', '多图上传添加成功！');
+    }
 }

@@ -53,6 +53,7 @@ Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 //多图上传
 Route::get('/multi/image', [BrandController::class, 'Multipic'])->name('multi.image');
+Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
 
 
