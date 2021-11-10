@@ -1,1 +1,1 @@
-lesson-33:EloquentORM删除图片
+lesson-34:Intervention Image包
