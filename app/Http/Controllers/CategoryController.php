@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
+    //路由守卫
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function AllCat()
     {
         //join方法实现连表查询
