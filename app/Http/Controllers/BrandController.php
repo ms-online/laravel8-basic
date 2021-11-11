@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BrandController extends Controller
 {
+    //路由守卫
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function AllBrand()
     {
         $brands = Brand::latest()->paginate(5);
