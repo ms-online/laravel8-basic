@@ -3,7 +3,7 @@
 @section('admin')
 <div class="py-12">
     <div class="container">
-        <div class="my-3"><a href="" class="btn btn-primary">添加Hero</a></div>
+        <div class="my-3"><a href="{{ route('add.hero') }}" class="btn btn-primary">添加Hero</a></div>
         <div class="row">
             <div class="col-md-12">
                 {{--  --}}
@@ -28,9 +28,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php($i =1)
                                 @foreach ($heroes as $hero )
                                 <tr>
-                                    <th scope="row">{{ $loop->index + $heroes->firstItem() }}</th>
+                                    <th scope="row">{{ $i++ }}</th>
                                     <td>{{ $hero->title }}</td>
                                     <td>{{ $hero->description }}</td>
                                     <td><img src="{{ asset($hero->image) }}" alt="" style="height:40px;width:70px"></td>

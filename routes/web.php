@@ -73,6 +73,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //Admin Route
 Route::get('/home/hero', [HomeController::class, 'HomeHero'])->name('home.hero');
+Route::get('/add/hero', [HomeController::class, 'AddHero'])->name('add.hero');
+Route::post('/store/hero', [HomeController::class, 'StoreHero'])->name('store.hero');
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');
