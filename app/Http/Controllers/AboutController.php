@@ -28,4 +28,21 @@ class AboutController extends Controller
         ]);
         return Redirect()->route('home.about')->with('success', 'about信息保存成功！');
     }
+
+    public function EditAbout($id)
+    {
+        $homeabout = HomeAbout::find($id);
+        return view('admin.home.edit', compact('homeabout'));
+    }
+
+    public function UpdateAbout(Request $request, $id)
+    {
+        $update = HomeAbout::find($id)->update([
+            'title' => $request->title,
+            'short_des' => $request->short_des,
+            'long_des' => $request->long_des,
+        ]);
+
+        return Redirect()->route('home.about')->with('success', 'about信息更新成功！');
+    }
 }
