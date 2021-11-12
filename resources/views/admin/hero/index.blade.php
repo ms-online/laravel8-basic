@@ -19,12 +19,12 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">序号</th>
-                                    <th scope="col">标题</th>
-                                    <th scope="col">描述信息</th>
-                                    <th scope="col">图片</th>
-                                    <th scope="col">创建时间</th>
-                                    <th scope="col">操作</th>
+                                    <th scope="col" width="5%">序号</th>
+                                    <th scope="col" width="15%">标题</th>
+                                    <th scope="col" width="25%">描述信息</th>
+                                    <th scope="col" width="15%">图片</th>
+                                    <th scope="col" width="15%">创建时间</th>
+                                    <th scope="col" width="15%">操作</th>
                                 </tr>
                             </thead>
                             <tbody>
