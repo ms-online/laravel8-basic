@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrandController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -68,6 +69,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $users = DB::table('users')->get();
     return view('admin.index', compact('users'));
 })->name('dashboard');
+
+
+//Admin Route
+Route::get('/home/hero', [HomeController::class, 'HomeHero'])->name('home.hero');
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');
