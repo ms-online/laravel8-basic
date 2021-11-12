@@ -41,7 +41,7 @@
 
 
                              <li class="active">
-                                 <a class="sidenav-item-link" href="analytics.html">
+                                 <a class="sidenav-item-link" href={{ route('home.about') }}>
                                      <span class="nav-text">Home About</span>
 
                                  </a>
