@@ -1,5 +1,6 @@
 @extends('layouts.master_home')
-
+<!-- ======= Hero Section ======= -->
+@include('layouts.body.hero')
 @section('home_content')
 <!-- ======= About Us Section ======= -->
 <section id="about-us" class="about-us">

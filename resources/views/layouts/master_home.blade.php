@@ -44,9 +44,6 @@
     <!-- ======= Header ======= -->
     @include('layouts.body.header')
 
-    <!-- ======= Hero Section ======= -->
-    @include('layouts.body.hero')
-
     <main id="main">
         @yield('home_content')
 
