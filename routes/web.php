@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AboutController;
+use App\Models\Multipic;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,8 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     $abouts = DB::table('home_abouts')->first();
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands', 'abouts'));
+    $images = Multipic::all();
+    return view('home', compact('brands', 'abouts', 'images'));
 });
 
 
