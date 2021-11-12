@@ -3,7 +3,7 @@
 @section('admin')
 <div class="py-12">
     <div class="container">
-        <div class="my-3"><a href="{{ route('add.hero') }}" class="btn btn-primary">添加About</a></div>
+        <div class="my-3"><a href="{{ route('add.about') }}" class="btn btn-primary">添加About</a></div>
         <div class="row">
             <div class="col-md-12">
                 {{--  --}}
@@ -35,11 +35,12 @@
                                     <td>{{ $about->title }}</td>
                                     <td>{{ $about->short_des}}</td>
                                     <td>{{ $about->long_des }}</td>
-                                    @if ($about->created_at == NULL)
-                                    <span class="text-danger">没有设置创建时间</span>
-                                    @else
-                                    {{ Carbon\Carbon::parse($about->created_at)->diffForHumans() }}
-                                    @endif
+                                    <td>
+                                        @if ($about->created_at == NULL)
+                                        <span class="text-danger">没有设置创建时间</span>
+                                        @else
+                                        {{ Carbon\Carbon::parse($about->created_at)->diffForHumans() }}
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="{{ url('about/edit/'.$about->id) }}" class="btn btn-success">编辑</a>

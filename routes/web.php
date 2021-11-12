@@ -79,6 +79,8 @@ Route::post('/store/hero', [HomeController::class, 'StoreHero'])->name('store.he
 
 //home About
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');
