@@ -45,4 +45,10 @@ class AboutController extends Controller
 
         return Redirect()->route('home.about')->with('success', 'about信息更新成功！');
     }
+
+    public function DeleteAbout($id)
+    {
+        $delete = HomeAbout::find($id)->delete();
+        return Redirect()->back()->with('success', 'about信息删除成功！');
+    }
 }
