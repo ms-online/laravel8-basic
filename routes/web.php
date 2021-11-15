@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//请求前台home页
 Route::get('/', function () {
     $abouts = DB::table('home_abouts')->first();
     $brands = DB::table('brands')->get();
@@ -29,17 +29,17 @@ Route::get('/', function () {
 });
 
 
-Route::get('/about', function () {
-    return view('about');
-});
+// Route::get('/about', function () {
+//     return view('about');
+// });
 
 //Laravel 6,7
 // Route::get('/contact', 'ContactController@index');
 
 //Laravel 8
-Route::get('/contact', [ContactController::class, 'index'])->name('con');
+// Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
-//商品类型
+//Lravel 8 dashbord ——商品类型
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
 Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');
 Route::get('/category/edit/{id}', [CategoryController::class, 'Edit']);
@@ -48,22 +48,20 @@ Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete'
 Route::get('/category/restore/{id}', [CategoryController::class, 'Restore']);
 Route::get('/pdelete/category/{id}', [CategoryController::class, 'Pdelete']);
 
-//品牌形象
+//Lravel 8 dashbord ——品牌形象
 Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'AddBrand'])->name('store.brand');
 Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
-//多图上传
+////Lravel 8 dashbord ——多图上传
 Route::get('/multi/image', [BrandController::class, 'Multipic'])->name('multi.image');
 Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
 
 
 
-
-
-//后台主页
+//BootStrap后台主页——Admin dashbord
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //Eloquent ORM
     // $users = User::all();
@@ -74,12 +72,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-//Admin Route
+//Admin Route：hero
 Route::get('/home/hero', [HomeController::class, 'HomeHero'])->name('home.hero');
 Route::get('/add/hero', [HomeController::class, 'AddHero'])->name('add.hero');
 Route::post('/store/hero', [HomeController::class, 'StoreHero'])->name('store.hero');
 
-//home About
+//Home页的About区域
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
 Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
 Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
@@ -87,13 +85,14 @@ Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
 Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout']);
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
-//portfolio 页面
+//前台Portfolio 页面
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
 
-//contact 页面
+//后台contact 页面
 Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
 Route::get('/admin/add/contact', [ContactController::class, 'AdminAddContact'])->name('add.contact');
 Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContact'])->name('store.contact');
+Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('admin.message');
 
 //前台 Contact 页面
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');

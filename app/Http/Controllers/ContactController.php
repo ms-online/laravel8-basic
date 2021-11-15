@@ -49,4 +49,10 @@ class ContactController extends Controller
         ]);
         return Redirect()->route('contact')->with('success', '消息发送成功！');
     }
+
+    public function AdminMessage()
+    {
+        $message = ContactForm::all();
+        return view('admin.contact.message', compact('message'));
+    }
 }
