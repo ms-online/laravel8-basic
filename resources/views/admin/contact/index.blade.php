@@ -3,7 +3,7 @@
 @section('admin')
 <div class="py-12">
     <div class="container">
-        <div class="my-3"><a href="{{ route('add.about') }}" class="btn btn-primary">添加Contact</a></div>
+        <div class="my-3"><a href="{{ route('add.contact') }}" class="btn btn-primary">添加Contact</a></div>
         <div class="row">
             <div class="col-md-12">
                 {{--  --}}
@@ -39,7 +39,7 @@
                                         @if ($con->created_at == NULL)
                                         <span class="text-danger">没有设置创建时间</span>
                                         @else
-                                        {{ Carbon\Carbon::parse($cont->created_at)->diffForHumans() }}
+                                        {{ Carbon\Carbon::parse($con->created_at)->diffForHumans() }}
                                         @endif
                                     </td>
                                     <td>
