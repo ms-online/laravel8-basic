@@ -97,6 +97,7 @@ Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContac
 
 //前台 Contact 页面
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
 
 //退出登录
