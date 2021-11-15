@@ -99,9 +99,11 @@ Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
-//更改用户密码路由
+//更改用户密码/个人资料路由
 Route::get('/user/password', [ChangePassword::class, 'CPassword'])->name('change.password');
 Route::post('/password/update', [ChangePassword::class, 'UpdatePassword'])->name('password.unpdate');
+Route::get('/user/profile', [ChangePassword::class, 'UpdateProfile'])->name('profile.update');
+Route::post('/user/profile/update', [ChangePassword::class, 'UpdateUserProfile'])->name('update.user.profile');
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');

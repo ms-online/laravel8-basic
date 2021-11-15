@@ -161,8 +161,8 @@
                                     </li>
 
                                     <li>
-                                        <a href="profile.html">
-                                            <i class="mdi mdi-account"></i> My Profile
+                                        <a href="{{ route('profile.update') }}">
+                                            <i class="mdi mdi-account"></i> 个人资料
                                         </a>
                                     </li>
                                     <li>

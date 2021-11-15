@@ -33,4 +33,28 @@ class ChangePassword extends Controller
             return redirect()->back()->with('error', '当前密码验证不通过！');
         }
     }
+
+    public function UpdateProfile()
+    {
+        if (Auth::user()) {
+            $user = User::find(Auth::user()->id);
+            if ($user) {
+                return view('admin.body.update_profile', compact('user'));
+            }
+        }
+    }
+
+    public function UpdateUserProfile(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        if ($user) {
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+
+            $user->save();
+            return redirect()->back()->with('success', '用户个人资料更新成功！');
+        } else {
+            return redirect()->back();
+        }
+    }
 }
