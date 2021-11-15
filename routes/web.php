@@ -95,6 +95,9 @@ Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('
 Route::get('/admin/add/contact', [ContactController::class, 'AdminAddContact'])->name('add.contact');
 Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContact'])->name('store.contact');
 
+//前台 Contact 页面
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');

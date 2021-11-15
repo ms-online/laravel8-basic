@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -28,5 +29,11 @@ class ContactController extends Controller
             'created_at' => Carbon::now()
         ]);
         return Redirect()->route('admin.contact')->with('success', 'Contact信息保存成功！');
+    }
+
+    public function Contact()
+    {
+        $contacts = DB::table('contacts')->first();
+        return view('pages.contact', compact('contacts'));
     }
 }
