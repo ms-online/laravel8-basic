@@ -59,7 +59,11 @@ class BrandController extends Controller
             'brand_image' => $last_img,
             'created_at' => Carbon::now()
         ]);
-        return Redirect()->back()->with('success', '品牌形象添加成功！');
+        $notification = array(
+            'message' => '品牌形象添加成功！',
+            'alert-type' => 'success',
+        );
+        return Redirect()->back()->with($notification);
     }
 
     public function Edit($id)
@@ -104,7 +108,11 @@ class BrandController extends Controller
             'brand_image' => $last_img,
             'created_at' => Carbon::now()
         ]);
-        return Redirect()->back()->with('success', '品牌形象更新成功！');
+        $notification = array(
+            'message' => '品牌形象更新成功！',
+            'alert-type' => 'info',
+        );
+        return Redirect()->back()->with($notification);
     }
 
     public function Delete($id)
@@ -116,7 +124,11 @@ class BrandController extends Controller
 
         //删除数据库中的品牌形象数据
         Brand::find($id)->delete();
-        return Redirect()->back()->with('success', '品牌形象删除成功！');
+        $notification = array(
+            'message' => '品牌形象删除成功！',
+            'alert-type' => 'warning',
+        );
+        return Redirect()->back()->with($notification);
     }
 
     // 多图上传
@@ -155,8 +167,11 @@ class BrandController extends Controller
                 'created_at' => Carbon::now()
             ]);
         }
-
-        return Redirect()->back()->with('success', '多图上传添加成功！');
+        $notification = array(
+            'message' => '多图上传添加成功！',
+            'alert-type' => 'error',
+        );
+        return Redirect()->back()->with($notification);
     }
 
     //退出登录
