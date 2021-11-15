@@ -101,6 +101,7 @@ Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('c
 
 //更改用户密码路由
 Route::get('/user/password', [ChangePassword::class, 'CPassword'])->name('change.password');
+Route::post('/password/update', [ChangePassword::class, 'UpdatePassword'])->name('password.unpdate');
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');
