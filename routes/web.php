@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ChangePassword;
 use App\Models\Multipic;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +99,8 @@ Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
+//更改用户密码路由
+Route::get('/user/password', [ChangePassword::class, 'CPassword'])->name('change.password');
 
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');
