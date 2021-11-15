@@ -89,5 +89,10 @@ Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
 //portfolio 页面
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
+//contact 页面
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+
+
 //退出登录
 Route::get('/user/logout', [BrandController::class, 'UserLogout'])->name('user.logout');
