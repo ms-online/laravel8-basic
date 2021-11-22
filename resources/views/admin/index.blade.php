@@ -6,8 +6,10 @@
      <h2>
          Hello, <b>{{ Auth::user()->name }}</b>
          <br>
-         <span class="my-2">总用户数目：<span class="badge bg-danger">{{ count($users) }}</span>
+
      </h2>
+     <h3 class="my-3">总用户数目：<span class="badge bg-danger">{{ count($users) }}</span>
+     </h3>
  </div>
 
  <div class="py-12">
