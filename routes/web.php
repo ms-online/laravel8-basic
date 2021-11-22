@@ -27,7 +27,7 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get();
     $images = Multipic::all();
     return view('home', compact('brands', 'abouts', 'images'));
-});
+})->name('home');
 
 
 // Route::get('/about', function () {
