@@ -23,7 +23,7 @@ public function boot()
 ```
 
 2. 部署优化
-找到env为件，将APP_DEBUG=true
+找到env文件，将APP_DEBUG=true
 ```
 php artisan config:cache
 php artisan config:clear
