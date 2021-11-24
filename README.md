@@ -37,6 +37,9 @@ php artisan view:clear
 5. 进入创建的数据库，导入本地下载的sql文件
 6. 在宝塔面板中安装php扩展
 7. 设置禁用函数，如：putenv,或根据实际提示进行删除
+可能存在的报错提示：
+eg:putenv() has been disabled for security reasons
+eg:ymlink() has been disabled for security reasons.
 8. 在宝塔面板中找到网站，点击配置站点
 9. 进入设置页面，选择网站目录，选择上传的文件夹并进入/public文件
 10. 添加伪静态
@@ -50,5 +53,11 @@ location / {
 11. 进入上传文件夹的.env环境中，修改APP_URL,数据库信息
 12. 访问域名进行测试
 
-
+### Tips:
+其他问题：Laravel项目图片无法显示（如：登录后的头像）
+存在问题：可能由于软连接失败
+解决办法：进入到public文件夹，执行下方命令，创建软链接
+```
+php artisan storage:link
+```
 ### 部署参考链接：https://blog.csdn.net/tank_ft/article/details/110542911
