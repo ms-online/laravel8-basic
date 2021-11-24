@@ -36,12 +36,12 @@ php artisan view:clear
 4. 在宝塔面板中创建数据库及用户名，密码
 5. 进入创建的数据库，导入本地下载的sql文件
 6. 在宝塔面板中安装php扩展
-7. 设置禁用函数，如：putenv,或根据实际提示进行删除
+7. 设置禁用函数，如：putenv,symlink或根据实际提示进行删除
 可能存在的报错提示：
 
 eg:putenv() has been disabled for security reasons
 
-eg:ymlink() has been disabled for security reasons.
+eg:symlink() has been disabled for security reasons.
 8. 在宝塔面板中找到网站，点击配置站点
 9. 进入设置页面，选择网站目录，选择上传的文件夹并进入/public文件
 10. 添加伪静态
